@@ -50,7 +50,11 @@ npm run dev
 
 在 BotFather 或 `setChatMenuButton` 里，把 Web App URL 设为 **Cloudflare 上的 https 地址**（与上面 Pages 域名一致）。
 
-#### 4. 本地 `public/_redirects`
+#### 4. 关于 `_redirects` 与 Wrangler 报错 10021
 
-已提供 `public/_redirects`，构建时会复制到 `dist`，供 SPA 回退到 `index.html`（以后若加前端路由仍可用）。
+若用 **Wrangler 部署 Workers 静态资源**（`wrangler deploy`），在 `dist` 里放常见 SPA 规则 `/* → /index.html` 可能触发校验：**Invalid _redirects… Infinite loop**（`code: 10021`）。
+
+本项目**没有**基于浏览器路径的前端路由（Tab 全是组件内状态），用户始终打开站点根路径即可，因此**不需要** `_redirects`。
+
+以后若接入 React Router 等深链，请改用 Cloudflare 文档里与 **Workers Assets / `html_handling`** 兼容的配置，或单独查 Workers SDK 对 `_redirects` 的现行规则，不要照搬通用 Netlify 式 `/* /index.html 200`。
 
