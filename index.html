@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>情绪治愈 · Mini</title>
-    <script type="module" crossorigin src="/assets/index-BtFc9rGr.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dvv-NX-3.css">
+    <!-- Telegram Mini App：必须在业务脚本前加载，以提供 window.Telegram.WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script type="module" crossorigin src="/assets/index-mwDEKjJt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DknhRoxm.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" style="padding:16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,PingFang SC,Microsoft YaHei,Arial;line-height:1.6">
+      <div style="opacity:.9;font-weight:600">加载中…</div>
+      <div style="opacity:.7;font-size:12px;margin-top:6px">
+        若长时间白屏：请检查控制台报错；在 Telegram 内测请使用公网 HTTPS（不要用 localhost）。
+      </div>
+    </div>
   </body>
 </html>
 
